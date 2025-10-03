@@ -19,7 +19,7 @@ const CreateStudentForm = () => {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState(initial);
 
-  console.log(update)
+  console.log(update);
   useEffect(() => {
     if (update && update.id) {
       setFormData({
@@ -32,7 +32,7 @@ const CreateStudentForm = () => {
   }, [update]);
 
   const handleChange = (
-    e
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
