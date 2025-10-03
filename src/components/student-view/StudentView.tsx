@@ -13,6 +13,7 @@ interface Props {
 }
 
 const StudentView: FC<Props> = ({ data }) => {
+  console.log(data)
   const { deleteUser } = useUsers();
   const { pathname } = useLocation();
   const dispatch = useDispatch();

@@ -5,7 +5,7 @@ import { useOutletContext } from "react-router-dom";
 import type { User } from "../../../types";
 
 const Females = () => {
-  const [data] = useOutletContext<[User[] | undefined]>();
+  const data = useOutletContext<User[] | undefined>();
 
   if (!data) {
     return <div>Loading...</div>;

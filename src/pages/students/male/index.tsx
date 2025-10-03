@@ -5,7 +5,7 @@ import { useOutletContext } from "react-router-dom";
 import type { User } from "../../../types";
 
 const Males = () => {
-  const [data] = useOutletContext<[User[] | undefined]>();
+  const data = useOutletContext<User[] | undefined>();
 
   if (!data) {
     return <div>Loading...</div>;
@@ -13,7 +13,7 @@ const Males = () => {
 
   return (
     <div>
-      <StudentView data={UseGetUsersByGender(data, "female")} />
+      <StudentView data={UseGetUsersByGender(data, "male")} />
     </div>
   );
 };
