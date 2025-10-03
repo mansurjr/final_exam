@@ -8,6 +8,7 @@ import type { User } from "../../types";
 const Student = () => {
   const { useGetUsers } = useUsers();
   const { data } = useGetUsers();
+
   return (
     <div>
       <Box>
@@ -15,20 +16,47 @@ const Student = () => {
           <Title>Student</Title>
         </div>
       </Box>
+
       <Box>
         <div className="flex gap-6">
-          <NavLink className="border-b-2 border-blue-500" to={"/students"}>
+          <NavLink
+            to="/students"
+            end
+            className={({ isActive }) =>
+              `border-b-2 pb-1 ${
+                isActive
+                  ? "border-blue-500 text-blue-500"
+                  : "border-transparent"
+              }`
+            }>
             All
           </NavLink>
-          <NavLink className="border-b-2 border-transparent" to={"male"}>
+          <NavLink
+            to="male"
+            className={({ isActive }) =>
+              `border-b-2 pb-1 ${
+                isActive
+                  ? "border-blue-500 text-blue-500"
+                  : "border-transparent"
+              }`
+            }>
             Male
           </NavLink>
-          <NavLink className="border-b-2 border-transparent" to={"female"}>
+          <NavLink
+            to="female"
+            className={({ isActive }) =>
+              `border-b-2 pb-1 ${
+                isActive
+                  ? "border-blue-500 text-blue-500"
+                  : "border-transparent"
+              }`
+            }>
             Female
           </NavLink>
         </div>
       </Box>
-      <Outlet context={[data as User[]]} />
+
+      <Outlet context={data as User[] | undefined} />
     </div>
   );
 };
