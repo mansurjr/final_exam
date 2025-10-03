@@ -3,6 +3,7 @@ import Box from "@/components/ui/Box";
 import Title from "@/components/ui/Title";
 import { useUsers } from "../../api/hooks/useStudent";
 import { NavLink, Outlet } from "react-router-dom";
+import type { User } from "../../types";
 
 const Student = () => {
   const { useGetUsers } = useUsers();
@@ -27,7 +28,7 @@ const Student = () => {
           </NavLink>
         </div>
       </Box>
-      <Outlet context={[data]} />
+      <Outlet context={[data as User[]]} />
     </div>
   );
 };
